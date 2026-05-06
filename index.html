@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="theme-color" content="#e52521">
+  <link rel="manifest" href="manifest.json">
+  <title>Mario Maker JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SCREENS -->
+<div id="screen-menu" class="screen active">
+  <div class="menu-bg">
+    <div class="clouds"><span></span><span></span><span></span></div>
+    <div class="menu-content">
+      <h1 class="game-title">🍄 MARIO<br><span>MAKER JS</span></h1>
+      <div class="menu-buttons">
+        <button class="btn-menu" id="btn-play">▶ LEVELS SPELEN</button>
+        <button class="btn-menu" id="btn-editor">🔧 LEVEL MAKEN</button>
+        <button class="btn-menu" id="btn-custom">🗂 MIJN LEVELS</button>
+      </div>
+      <div class="menu-mario">
+        <div class="mario-sprite idle" id="menu-mario"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="screen-level-select" class="screen">
+  <div class="level-select-bg">
+    <button class="btn-back" id="back-from-select">← TERUG</button>
+    <h2>KIES EEN LEVEL</h2>
+    <div class="level-grid" id="level-grid"></div>
+  </div>
+</div>
+
+<div id="screen-game" class="screen">
+  <div class="hud">
+    <div class="hud-item">🍄 <span id="hud-lives">3</span></div>
+    <div class="hud-item hud-title" id="hud-level-name">LEVEL 1</div>
+    <div class="hud-item">⭐ <span id="hud-score">0</span></div>
+    <div class="hud-item">⏱ <span id="hud-time">300</span></div>
+    <button class="btn-hud" id="btn-pause">⏸</button>
+  </div>
+  <div class="game-container">
+    <canvas id="game-canvas"></canvas>
+  </div>
+  <!-- Mobile Controls -->
+  <div class="mobile-controls" id="mobile-controls">
+    <div class="controls-left">
+      <button class="ctrl-btn" id="btn-left">◀</button>
+      <button class="ctrl-btn" id="btn-right">▶</button>
+    </div>
+    <div class="controls-right">
+      <button class="ctrl-btn btn-jump" id="btn-jump">🅱 JUMP</button>
+      <button class="ctrl-btn btn-run" id="btn-run">🅰 RUN</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-editor" class="screen">
+  <div class="editor-layout">
+    <div class="editor-toolbar">
+      <button class="btn-back" id="back-from-editor">← MENU</button>
+      <input type="text" id="level-name-input" placeholder="Level naam..." maxlength="20">
+      <div class="editor-tools" id="editor-tools"></div>
+      <div class="editor-actions">
+        <button class="btn-editor-action" id="btn-test-level">▶ TEST</button>
+        <button class="btn-editor-action btn-save" id="btn-save-level">💾 OPSLAAN</button>
+        <button class="btn-editor-action btn-clear" id="btn-clear-level">🗑 LEEG</button>
+      </div>
+    </div>
+    <div class="editor-canvas-wrap">
+      <canvas id="editor-canvas"></canvas>
+      <div class="editor-mobile-scroll">
+        <button id="scroll-left">◀</button>
+        <button id="scroll-right">▶</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="screen-pause" class="screen overlay">
+  <div class="pause-menu">
+    <h2>⏸ GEPAUZEERD</h2>
+    <button class="btn-menu" id="btn-resume">▶ DOORGAAN</button>
+    <button class="btn-menu" id="btn-restart">🔄 HERSTARTEN</button>
+    <button class="btn-menu" id="btn-quit">🏠 MENU</button>
+  </div>
+</div>
+
+<div id="screen-gameover" class="screen overlay">
+  <div class="gameover-menu">
+    <h2 id="gameover-title">GAME OVER</h2>
+    <p id="gameover-msg"></p>
+    <button class="btn-menu" id="btn-gameover-retry">🔄 OPNIEUW</button>
+    <button class="btn-menu" id="btn-gameover-menu">🏠 MENU</button>
+  </div>
+</div>
+
+<div id="screen-custom-levels" class="screen">
+  <div class="level-select-bg">
+    <button class="btn-back" id="back-from-custom">← TERUG</button>
+    <h2>MIJN LEVELS</h2>
+    <div class="level-grid" id="custom-level-grid"></div>
+    <p class="no-levels-msg" id="no-levels-msg" style="display:none">Nog geen levels gemaakt.<br>Ga naar de editor om je eerste level te maken!</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
